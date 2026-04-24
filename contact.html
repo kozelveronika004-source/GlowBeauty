@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GlowBeauty - Contact Us</title>
+<link rel="stylesheet" href="style.css">
+<style>
+/* Форма контактной страницы */
+.contact-form {
+  max-width: 600px;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.contact-form button {
+  width: 150px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #ff66b2;
+  color: white;
+  cursor: pointer;
+  align-self: center; /* по центру */
+}
+
+.contact-form button:hover {
+  background-color: #ff85c1;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">GlowBeauty</div>
+  <nav class="nav-center">
+    <a href="index.html">Home</a>
+    <a href="catalog.html">Catalog</a>
+    <a href="checkout.html">Checkout</a>
+    <a href="contact.html" class="active">Contact</a>
+  </nav>
+  <div class="cart-wrapper">
+    <a href="cart.html" class="cart-icon">🛒<span id="cart-counter">0</span></a>
+  </div>
+</header>
+
+<main class="container">
+  <h2>Contact Us</h2>
+
+  <form class="contact-form" id="contactForm">
+    <input type="text" name="name" placeholder="Name" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <textarea name="message" placeholder="Message" rows="5" required></textarea>
+    <button type="submit">Send</button>
+  </form>
+
+</main>
+
+<footer>
+  <p>Contact: info@glowbeauty.com | Follow us on social media</p>
+  <p>© 2026 GlowBeauty</p>
+</footer>
+
+<script>
+// Простая обработка формы
+document.getElementById('contactForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  alert('Your message has been sent!');
+  this.reset();
+});
+</script>
+
+</body>
+</html>

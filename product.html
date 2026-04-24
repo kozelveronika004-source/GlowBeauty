@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GlowBeauty - Product</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="logo">GlowBeauty</div>
+
+  <nav class="nav-center">
+    <a href="index.html">Home</a>
+    <a href="catalog.html" class="active">Catalog</a>
+    <a href="checkout.html">Checkout</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <div class="cart-wrapper">
+    <a href="cart.html" class="cart-icon">🛒<span id="cart-counter">0</span></a>
+  </div>
+</header>
+
+<main class="container">
+  <div class="flex" id="product-detail"></div>
+
+  <section>
+    <h3>Reviews</h3>
+    <div class="flex">
+      <div class="card"><strong>Jane:</strong> ★★★★☆ Great product!</div>
+      <div class="card"><strong>Mary:</strong> ★★★★★ Love it!</div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>Contact: info@glowbeauty.com | Follow us on social media</p>
+  <p>© 2026 GlowBeauty</p>
+</footer>
+
+<script src="script.js"></script>
+<script>
+const urlParams = new URLSearchParams(window.location.search);
+const productId = parseInt(urlParams.get('id'));
+const product = products.find(p=>p.id===productId);
+
+const productContainer = document.getElementById('product-detail');
+if(product){
+  const card = document.createElement('div');
+  card.className='card';
+  card.style.flex='1';
+  card.innerHTML=`
+    <div class="card-content">
+      <h2>${product.name}</h2>
+      <p>$${product.price}</p>
+      <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <label>Quantity:</label>
+      <input type="number" id="product-quantity" value="1" min="1">
+      <button id="add-cart">Add to Cart</button>
+    </div>
+  `;
+  productContainer.appendChild(card);
+
+  document.getElementById('add-cart').onclick = ()=>{
+    const qty = parseInt(document.getElementById('product-quantity').value);
+    addToCart(product.id, qty);
+  };
+  document.getElementById('buy-now').onclick = ()=>{
+    const qty = parseInt(document.getElementById('product-quantity').value);
+    addToCart(product.id, qty);
+    window.location.href='checkout.html';
+  };
+}
+
+const recContainer = document.getElementById('recommendations');
+products.filter(p=>p.id!==productId).slice(0,3).forEach(p=>{
+  const card = document.createElement('div');
+  card.className='card';
+  card.innerHTML=`
+    <img src="${p.image}" alt="${p.name}">
+    <div class="card-content">
+      <h4>${p.name}</h4>
+      <p>$${p.price}</p>
+      <button onclick="addToCart(${p.id})">Add to Cart</button>
+    </div>
+  `;
+  recContainer.appendChild(card);
+});
+</script>
+</body>
+</html>
