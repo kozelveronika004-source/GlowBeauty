@@ -1,0 +1,199 @@
+/* Общие стили */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #fafafa;
+  color: #333;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #ff66b2;
+}
+
+/* Header */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 5%;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+header .logo {
+  font-size: 1.8em;
+  font-weight: bold;
+  color: #d0046a;
+}
+
+.nav-center {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-center a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  padding-bottom: 5px;
+}
+
+.nav-center a.active {
+  color: #ff66b2;
+  border-bottom: 2px solid #ff66b2;
+}
+
+.cart-wrapper {
+  position: relative;
+}
+
+.cart-wrapper .cart-icon {
+  text-decoration: none;
+  font-size: 1.5em;
+  position: relative;
+  color: #333;
+}
+
+.cart-wrapper #cart-counter {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background-color: #ff66b2;
+  color: #fff;
+  font-size: 0.8em;
+  padding: 2px 6px;
+  border-radius: 50%;
+}
+
+/* Hero Banner */
+.hero-banner {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.hero-banner img {
+  width: 100%;
+  border-radius: 10px;
+  display: block;
+}
+
+/* Скрываем текст баннера Home */
+.hero-banner div {
+  display: none;
+}
+
+/* Flex контейнеры */
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Карточки товаров */
+.card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  padding: 15px;
+  text-align: center;
+  width: 250px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.card h3 {
+  font-size: 1.2em;
+  margin: 10px 0 5px;
+}
+
+.card p {
+  font-size: 1em;
+  margin: 5px 0 10px;
+  color: #555;
+}
+
+/* Серый фрейм вместо картинки */
+.card-image-placeholder {
+  width: 100%;
+  height: 180px;
+  background-color: #ccc;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+/* Кнопки */
+.card button {
+  padding: 8px 15px;
+  margin: 5px 5px 0 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.2s;
+}
+
+.card button:hover {
+  opacity: 0.9;
+}
+
+.card button:nth-child(1) {
+  background-color: #ff66b2;
+  color: white;
+}
+
+.card .view-details {
+  background-color: transparent;
+  border: 2px solid #ff66b2;
+  color: #ff66b2;
+}
+
+.card .view-details:hover {
+  background-color: #ff66b2;
+  color: #fff;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 15px;
+  background-color: #fff;
+  margin-top: 40px;
+  border-top: 1px solid #eee;
+  color: #555;
+}
+
+/* Mobile-first адаптивность */
+@media (max-width: 768px) {
+  .card {
+    width: 45%;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    width: 100%;
+  }
+
+  .nav-center {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+}
